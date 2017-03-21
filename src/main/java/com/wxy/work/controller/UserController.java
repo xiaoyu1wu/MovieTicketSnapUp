@@ -47,4 +47,5 @@ public class UserController {
 		LOGGER.debug("进入main.jsp");
 		return "/common/main";
 	}
+	
 }

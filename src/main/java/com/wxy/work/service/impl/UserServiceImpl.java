@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 	public List<AcctUser> findAll() {
 		return userDao.findAll();
 	}
-
+ 
 	@Override
 	public void persist(AcctUser entity) {
 		userDao.persist(entity);

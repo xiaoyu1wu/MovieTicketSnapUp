@@ -13,6 +13,7 @@
 		    classpath:spring-hibernate.xml,
 		    classpath:spring-redis.xml
 		</param-value>
+		
 	</context-param>
 
 	<filter>

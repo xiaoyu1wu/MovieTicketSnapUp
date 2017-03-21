@@ -9,6 +9,7 @@
 	<name>MovieTicketSnapUp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
+	<!-- 指定的静态变量 -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.1.4.RELEASE</spring.version>
@@ -159,23 +160,30 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- redis配置 -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>1.4.1.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
+		<!-- jstl标签库 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
+			<scope>runtime</scope>
 		</dependency>
-		
-		<!-- redis配置 -->
 		<dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-redis</artifactId>
-            <version>1.4.1.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>2.6.1</version>
-        </dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
 
 	</dependencies>
 
@@ -194,6 +202,7 @@
 
 			</plugin>
 
+			<!-- war格式打包插件 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
@@ -219,7 +228,7 @@
 			</plugin>
 
 			<!-- 部署至本机 -->
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.codehaus.cargo</groupId>
 				<artifactId>cargo-maven2-plugin</artifactId>
 				<version>1.0</version>
@@ -233,8 +242,84 @@
 						<home>D:\WebServer\apache-tomcat-6.0.39</home>
 					</configuration>
 				</configuration>
+			</plugin> -->
+
+			<!-- 指定maven编译插件的jdk版本和编码 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<compilerVersion>1.8</compilerVersion>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- 指定资源配置文件插件的版本以及编码 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- 配置tomcat7步骤2，maven部署到tomcat插件 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<port>8080</port>
+					<path>/movieTicketSnapUp</path>
+					<uriEncoding>UTF-8</uriEncoding>
+					<finalName>mgr</finalName>
+					<server>tomcat7</server>
+				</configuration>
 			</plugin>
 		</plugins>
 
 	</build>
+	
+	<!-- 配置tomcat7步骤2 -->
+	<repositories>
+		<repository>
+
+			<id>
+		      people.apache.snapshots
+		     </id>
+			<url>   
+		      http://repository.apache.org/content/groups/snapshots-group/  
+		    </url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+
+			<id>apache.snapshots</id>
+			<name>Apache Snapshots</name>
+
+			<url> 
+		     	http://repository.apache.org/content/groups/snapshots-group/  
+		    </url>
+
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+
+		</pluginRepository>
+	</pluginRepositories>
 </project>
