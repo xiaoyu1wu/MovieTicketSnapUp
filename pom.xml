@@ -274,7 +274,7 @@
 				<version>2.1</version>
 				<configuration>
 					<port>8080</port>
-					<path>/movieTicketSnapUp</path>
+					<path>/MovieTicketSnapUp</path>
 					<uriEncoding>UTF-8</uriEncoding>
 					<finalName>mgr</finalName>
 					<server>tomcat7</server>

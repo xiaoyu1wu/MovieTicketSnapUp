@@ -13,7 +13,7 @@
 		    classpath:spring-hibernate.xml,
 		    classpath:spring-redis.xml
 		</param-value>
-		
+
 	</context-param>
 
 	<filter>
@@ -70,7 +70,7 @@
 		<servlet-name>rest</servlet-name>
 		<url-pattern>*.htmls</url-pattern>
 	</servlet-mapping>
-	
+
 	<filter-mapping>
 		<filter-name>openSessionInViewFilter</filter-name>
 		<url-pattern>*.htmls</url-pattern>

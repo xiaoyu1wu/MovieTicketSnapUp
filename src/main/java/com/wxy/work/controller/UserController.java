@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**  
@@ -46,6 +47,22 @@ public class UserController {
 	public String main(ModelMap modelMap){
 		LOGGER.debug("进入main.jsp");
 		return "/common/main";
+	}
+	
+	@RequestMapping("/movieDetail")
+	public String testMovieDetail(ModelMap modelMap){
+		LOGGER.debug("进入movieDetail.jsp");
+		return "/common/movieDetail";
+	}
+	
+	@RequestMapping(value="login")
+	public String login(){
+		return "/user/userLogin";
+	}
+	
+	@RequestMapping(value="processUserLogin")
+	public String processLogin(){
+		return "/user/userLogin";
 	}
 	
 }
