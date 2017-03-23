@@ -79,7 +79,7 @@
 				});
 	}
 
-	//格式化时间：hh:MM
+	//格式化时间：HH:mm
 	function renderTime(data) {
 		var da = eval("new Date(" + data +")");
 		var hour = da.getHours();
@@ -149,7 +149,7 @@
 			<div class="col-md-12 column">
 
 				<div class="jumbotron well">
-					<h1>你喜欢的, 才是电影!</h1>
+					<h2>你喜欢的, 才是电影!</h2>
 					<p>
 						这是一个简洁大方的电影票抢购系统，选择你喜欢的电影，抢购成功将以邮件的方式通知你！电影票有限，尽快抢购吧，抢到就是赚到！！！</p>
 					<p>
@@ -200,7 +200,7 @@
 					var res_movie_pic = new_rs_movie_in.children(".res_movie_pic");
 					res_movie_pic.find("a").find("img").attr("src", "http://localhost:8080/MovieTicketSnapUp/image/shenghuaweiji.jpg");
 					res_movie_pic.find(".res_picwz").html("48小时最热");
-					res_movie_pic.find(".res_movie_ann").html("选座购票");
+					res_movie_pic.find(".res_movie_ann").html("<a href=''" + "class='btn btn-primary'" + " target='_blank'" + ">选座购票</a>");
 
 					var res_movie_text_in_title = new_rs_movie_in.children(".res_movie_text").find(".res_movie_text_in_title");
 					res_movie_text_in_title.find(".xh_a").html("生化危机");

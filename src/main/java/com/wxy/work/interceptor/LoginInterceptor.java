@@ -15,7 +15,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		Integer userId = (Integer) session.getAttribute("userId");
 		Integer adminId = (Integer) session.getAttribute("adminId");
 		
-		if(userId==null && adminId == null){
+		if (request.getHeader("x-requested-with") != null && request.getHeader("x-requested-with").equalsIgnoreCase("XMLHttpRequest")){ //如果是ajax请求响应头会有x-requested-with  
+            return true;
+        }else if(userId==null && adminId == null){
 			response.sendRedirect("/MovieTicketSnapUp/user/main.htmls");
 			return false;
 		}
