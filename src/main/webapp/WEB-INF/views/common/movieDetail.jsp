@@ -14,6 +14,7 @@
 <script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/MovieTicketSnapUp/css/mynav.css">
+<link rel="stylesheet" href="/MovieTicketSnapUp/css/body.css">
 
 <%
 String path = request.getContextPath();

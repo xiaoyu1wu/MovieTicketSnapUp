@@ -38,6 +38,5 @@ public class AuthImage {
         //生成图片  
         int w = 100, h = 30;  
         VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);  
-        response.getOutputStream().flush();
     }  
 } 

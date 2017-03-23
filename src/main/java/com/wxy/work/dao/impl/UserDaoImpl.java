@@ -3,7 +3,7 @@ package com.wxy.work.dao.impl;
 import java.util.List;
 
 import com.wxy.work.dao.UserDao;
-import com.wxy.work.entity.AcctUser;
+import com.wxy.work.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,41 +26,41 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public AcctUser load(String id) {
-		return (AcctUser) this.getCurrentSession().load(AcctUser.class, id);
+	public User load(Integer id) {
+		return (User) this.getCurrentSession().load(User.class, id);
 	}
 	
 	@Override
-	public AcctUser get(String id) {
-		return (AcctUser) this.getCurrentSession().get(AcctUser.class, id);
+	public User get(Integer id) {
+		return (User) this.getCurrentSession().get(User.class, id);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<AcctUser> findAll() {
-		List<AcctUser> acctUsers = this.getCurrentSession().createQuery("from AcctUser").setCacheable(true).list();
-		return acctUsers;
+	public List<User> findAll() {
+		List<User> Users = this.getCurrentSession().createQuery("from User").setCacheable(true).list();
+		return Users;
 	}
 
 	@Override
-	public void persist(AcctUser entity) {
+	public void persist(User entity) {
 		this.getCurrentSession().persist(entity);
 
 	}
 
 	@Override
-	public String save(AcctUser entity) {
-		return (String) this.getCurrentSession().save(entity);
+	public Integer save(User entity) {
+		return (Integer) this.getCurrentSession().save(entity);
 	}
 
 	@Override
-	public void saveOrUpdate(AcctUser entity) {
+	public void saveOrUpdate(User entity) {
 		this.getCurrentSession().saveOrUpdate(entity);
 	}
 
 	@Override
-	public void delete(String id) {
-		AcctUser entity = this.load(id);
+	public void delete(Integer id) {
+		User entity = this.load(id);
 		this.getCurrentSession().delete(entity);
 	}
 
@@ -69,5 +69,22 @@ public class UserDaoImpl implements UserDao {
 		this.getCurrentSession().flush();
 
 	}
+
+	@Override
+	public int findUser(String email, String md5Pwd) {
+		String sql = "select IFNULL(MAX(user_id), -1) as user_id from user " +
+					"where user_email = ? and user_password = ?";
+		Number userId = (Number)this.getCurrentSession().createSQLQuery(sql).setString(0, email).setString(1, md5Pwd).list().get(0);
+		return userId.intValue();
+	}
+	
+	@Override
+	public int findUser(String email) {
+		String sql = "select IFNULL(MAX(user_id), -1) as user_id from user " +
+					"where user_email = ?";
+		
+		Number userId = (Number) this.getCurrentSession().createSQLQuery(sql).setString(0, email).list().get(0);
+		return userId.intValue();
+ 	}
 
 }

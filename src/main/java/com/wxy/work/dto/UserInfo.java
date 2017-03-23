@@ -2,7 +2,7 @@ package com.wxy.work.dto;
 
 import com.wxy.work.dto.impl.DomainObject;
 
-public class User implements DomainObject{
+public class UserInfo implements DomainObject{
 
 	/**
 	 * 
@@ -14,7 +14,7 @@ public class User implements DomainObject{
 	private String id;
 	private String name;
 	
-	public User(String id, String name) {
+	public UserInfo(String id, String name) {
 		super();
 		this.id = id;
 		this.name = name;

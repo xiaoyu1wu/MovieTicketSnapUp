@@ -20,6 +20,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -28,6 +29,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "acct_user", catalog = "work")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
 public class AcctUser implements java.io.Serializable {
 
 	/**
@@ -96,6 +98,7 @@ public class AcctUser implements java.io.Serializable {
 		this.registerTime = registerTime;
 	}
 
+	@JsonIgnore
 	@JsonIgnoreProperties(value={"acctUsers", "acctAuthorities"})
 	@ManyToMany(fetch = FetchType.LAZY)
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)

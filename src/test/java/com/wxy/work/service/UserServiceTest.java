@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import com.wxy.work.dto.User;
+import com.wxy.work.dto.UserInfo;
 import com.wxy.work.entity.AcctUser;
 import com.wxy.work.service.UserService;
 
@@ -36,7 +36,7 @@ public class UserServiceTest {
 	private UserService userService;
 	
 	@Autowired
-	private RedisService<User> redisService;
+	private RedisService<UserInfo> redisService;
 
 	/*@Test
 	public void save() {
@@ -54,8 +54,8 @@ public class UserServiceTest {
 	 */
 	@Test
 	public void testRedis(){
-		User user1 = new User("tony1Key", "wuxiaoyu");
-        User user2 = new User("tony2Key", "wuxiaoning");
+		UserInfo user1 = new UserInfo("tony1Key", "wuxiaoyu");
+        UserInfo user2 = new UserInfo("tony2Key", "wuxiaoning");
         
         //先删除存在的
         if(redisService.get(user1) != null && redisService.get(user2) != null){
@@ -72,8 +72,8 @@ public class UserServiceTest {
         redisService.put(user1);
         redisService.put(user2);
        
-        System.out.println("User in redis yet: " + redisService.get(new User("tony1Key", "")).getName());
-        System.out.println("User in redis yet: " + redisService.get(new User("tony2Key", "")).getName());
+        System.out.println("User in redis yet: " + redisService.get(new UserInfo("tony1Key", "")).getName());
+        System.out.println("User in redis yet: " + redisService.get(new UserInfo("tony2Key", "")).getName());
 	}
 
 }
