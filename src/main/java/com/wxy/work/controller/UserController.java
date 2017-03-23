@@ -115,7 +115,7 @@ public class UserController {
 		return "/user/userLogin";
 	}
 
-	@RequestMapping(value = "processUserLogin")
+	@RequestMapping(value = "/processUserLogin")
 	public ModelAndView processLogin(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		ModelAndView model = new ModelAndView();
 
