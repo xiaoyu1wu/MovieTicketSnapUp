@@ -29,6 +29,22 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
+	<!-- 拦截器配置 -->  
+    <mvc:interceptors>  
+      <!-- session超时 -->  
+      <mvc:interceptor>  
+        <mvc:mapping path="/*/*"/>  
+        <mvc:exclude-mapping path="/user/login.htmls"/>
+        <mvc:exclude-mapping path="/user/main.htmls"/>
+        
+        <mvc:exclude-mapping path="/js"/>
+        <mvc:exclude-mapping path="/css"/>
+        <mvc:exclude-mapping path="/image"/>
+        <mvc:exclude-mapping path="/images"/>
+        <bean class="com.wxy.work.interceptor.LoginInterceptor"></bean>  
+      </mvc:interceptor>  
+    </mvc:interceptors>  
+	
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
