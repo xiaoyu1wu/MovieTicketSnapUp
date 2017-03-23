@@ -16,7 +16,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		Integer adminId = (Integer) session.getAttribute("adminId");
 		
 		if(userId==null && adminId == null){
-			response.sendRedirect("/lyw/user/main.htmls");
+			response.sendRedirect("/MovieTicketSnapUp/user/main.htmls");
 			return false;
 		}
 		return super.preHandle(request, response, handler);
