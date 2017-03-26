@@ -1,0 +1,37 @@
+.seatShowInn {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-bottom: 15px;
+    position: relative;
+    width: 840px;
+}
+
+.seatArea {
+    float: left;
+    position: relative;
+    z-index: 3;
+}
+
+.seatAll .seatRow {
+    height: 36px;
+    padding: 0 30px;
+    position: relative;
+    white-space: nowrap;
+    z-index: 9;
+}
+
+.empty {
+    height: 21px;
+}
+
+.seatAll .seatRow .st, .seatAll .seatRow .empty {
+    display: inline-block;
+    height: 21px;
+    letter-spacing: -8px;
+    padding: 0 0 15px;
+    word-spacing: -8px;
+}
+
+.seatAll .seatRow .st img {
+    cursor: pointer;
+}

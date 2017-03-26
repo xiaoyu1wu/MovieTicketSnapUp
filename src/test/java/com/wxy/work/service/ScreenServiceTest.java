@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.wxy.work.entity.ScreenSchedule;
+import com.wxy.work.entity.Screen;
 
 import junit.framework.TestCase;
 
@@ -20,17 +20,17 @@ import junit.framework.TestCase;
 @ContextConfiguration(locations = { "classpath:spring.xml",
 									"classpath:spring-redis.xml",
 									"classpath:spring-hibernate.xml" })
-public class ScreenScheduleServiceTest extends TestCase{
-	private static final Logger LOGGER = Logger.getLogger(ScreenScheduleServiceTest.class);
+public class ScreenServiceTest extends TestCase{
+	private static final Logger LOGGER = Logger.getLogger(ScreenServiceTest.class);
 	
 	@Autowired
-	private ScreenScheduleService screenScheduleService;
+	private ScreenService screenService;
 	
 	@Test
-	public void TestGetScreenScheduleList() throws ParseException{
+	public void TestGetScreenList() throws ParseException{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = sdf.parse("2017-02-27");
-		List<ScreenSchedule> screenList = screenScheduleService.getScreenScheduleList(date, 1, "刺客信条");
+		List<Screen> screenList = screenService.getScreenList(date, 1, "刺客信条");
 //		assertEquals(16, screenList.get(0).getId()); 
 	}
 }

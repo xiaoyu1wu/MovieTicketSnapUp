@@ -1,8 +1,10 @@
 package com.wxy.work.entity;
-// Generated 2017-3-23 11:33:14 by Hibernate Tools 4.3.1.Final
+// Generated 2017-3-27 0:09:43 by Hibernate Tools 4.3.1.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,27 +15,27 @@ import javax.persistence.Table;
 @Table(name = "admin", catalog = "work")
 public class Admin implements java.io.Serializable {
 
-	private int adminId;
+	private Integer adminId;
 	private String adminName;
 	private String adminPassword;
 
 	public Admin() {
 	}
 
-	public Admin(int adminId, String adminName, String adminPassword) {
-		this.adminId = adminId;
+	public Admin(String adminName, String adminPassword) {
 		this.adminName = adminName;
 		this.adminPassword = adminPassword;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "admin_id", unique = true, nullable = false)
-	public int getAdminId() {
+	public Integer getAdminId() {
 		return this.adminId;
 	}
 
-	public void setAdminId(int adminId) {
+	public void setAdminId(Integer adminId) {
 		this.adminId = adminId;
 	}
 

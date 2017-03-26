@@ -85,11 +85,9 @@
 	<!-- Spring aop事务管理 -->
 	<aop:config>
 		<!-- 配置切入点 -->
-		<aop:pointcut id="transactionPointcut"
-			expression="execution(* com.wxy.work.service..*Impl.*(..))" />
+		<aop:pointcut id="transactionPointcut" expression="execution(* com.wxy.work.service..*Impl.*(..))" />
 		<!-- 指定在txAdvice切入点应用txAdvice事务增强处理 -->
-		<aop:advisor pointcut-ref="transactionPointcut"
-			advice-ref="transactionAdvice" />
+		<aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" />
 	</aop:config>
 
 </beans>

@@ -62,6 +62,11 @@
 					}
 				});
 	}
+	
+	function buyTicket(screensId){
+		window.open("http://localhost:8080/MovieTicketSnapUp/cinema/showSeatPlan.htmls?screenId=" + screensId);
+	}
+	
 	function getMovieList() {
 		var type = 0; //影片排序类型{0：默认, 1：上映时间, 2：评分}
 		$.ajax({

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wxy.work.entity.Movie;
-import com.wxy.work.entity.ScreenSchedule;
+import com.wxy.work.entity.Screen;
 
 @Controller
 @RequestMapping("/movie")

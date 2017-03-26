@@ -16,26 +16,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wxy.work.entity.Movie;
-import com.wxy.work.entity.ScreenSchedule;
-import com.wxy.work.service.ScreenScheduleService;
+import com.wxy.work.entity.Screen;
+import com.wxy.work.service.ScreenService;
 
 @Controller
-@RequestMapping("/screenSchedule")
-public class ScreenScheduleController {
+@RequestMapping("/screen")
+public class ScreenController {
 	
-	private static final Logger LOGGER = Logger.getLogger(ScreenScheduleService.class);
+	private static final Logger LOGGER = Logger.getLogger(ScreenService.class);
 	
 	@Autowired
-	private ScreenScheduleService screenScheduleService;
+	private ScreenService screenService;
 	
-	@RequestMapping(value = "/getScreenScheduleList", method=RequestMethod.POST)
-	private @ResponseBody List<ScreenSchedule> getScreenScheduleList(ModelMap modelMap, @RequestParam String day, @RequestParam String cinemaId, @RequestParam String movie) throws ParseException {
+	@RequestMapping(value = "/getScreenList", method=RequestMethod.POST)
+	private @ResponseBody List<Screen> getScreenList(ModelMap modelMap, @RequestParam String day, @RequestParam String cinemaId, @RequestParam String movie) throws ParseException {
 		LOGGER.info("获取所有的电影排片");
 		LOGGER.info("day:" + day);
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");//小写的mm表示的是分钟  
 		Date date=sdf.parse(day);
 		
-		List<ScreenSchedule> screenSchedules = screenScheduleService.getScreenScheduleList(date, Integer.valueOf(cinemaId), movie);
-		return screenSchedules;
+		List<Screen> screens = screenService.getScreenList(date, Integer.valueOf(cinemaId), movie);
+		return screens;
 	}
 }
