@@ -2,18 +2,17 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-  <!-- <table-filter match-catalog="work" match-name="admin"/>
+  <table-filter match-catalog="work" match-name="admin"/>
   <table-filter match-catalog="work" match-name="cinema"/>
   <table-filter match-catalog="work" match-name="cinema_comment"/>
-  -->
   <table-filter match-catalog="work" match-name="hall"/>
-  <!-- <table-filter match-catalog="work" match-name="invite"/>
+  <table-filter match-catalog="work" match-name="invite"/>
   <table-filter match-catalog="work" match-name="movie"/>
   <table-filter match-catalog="work" match-name="movie_comment"/>
   <table-filter match-catalog="work" match-name="order"/>
   <table-filter match-catalog="work" match-name="screen"/>
-  <table-filter match-catalog="work" match-name="seat"/>  -->
+  <table-filter match-catalog="work" match-name="seat"/> 
   <table-filter match-catalog="work" match-name="seat_plan"/>  
-  <!-- <table-filter match-catalog="work" match-name="user"/>
- -->
+  <table-filter match-catalog="work" match-name="user"/>
+
 </hibernate-reverse-engineering>

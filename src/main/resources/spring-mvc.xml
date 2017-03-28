@@ -40,7 +40,7 @@
         <mvc:exclude-mapping path="/user/processUserRegedit.htmls"/>
         <mvc:exclude-mapping path="/authImage/image.htmls"/>
         
-        <mvc:exclude-mapping path="/user/main.htmls"/>
+        <mvc:exclude-mapping path="/common/*"/>
         <mvc:exclude-mapping path="/cinema/showSeatPlan.htmls"/>
         <mvc:exclude-mapping path="/js"/>
         <mvc:exclude-mapping path="/css"/>
@@ -59,4 +59,17 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<!-- 第三步：注册处理器映射器/处理器适配器 ，添加conversion-service属性-->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+   
+    <!-- 第二步： 创建convertion-Service ，并注入dateConvert-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <ref bean="dateConvert"/>
+            </set>
+        </property>
+    </bean>
+    <!-- 注册参数类型转换器   第一步:  创建自定义日期转换规则 -->   
+    <bean id="dateConvert" class="com.wxy.work.util.DateConvert"/>
 </beans>

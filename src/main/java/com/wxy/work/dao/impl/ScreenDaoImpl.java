@@ -88,8 +88,9 @@ public class ScreenDaoImpl implements ScreenDao {
 		List<Screen> pusList = query.setString("movie", movie).setInteger("cinemaId", cinema).setDate("day", day).setCacheable(true).list();
 		*/
 		
-		String sql = "SELECT * from screen "
-				+ "WHERE movie_name = ? "
+		String sql = "SELECT screen_id, cinema_id, hall_id, m.movie_id, open_time, discount from screen s, movie m "
+				+ "WHERE m.movie_id = s.movie_id "
+				+ "AND movie_name = ? " 
 				+ "AND cinema_id = ? "
 				+ "AND DATE(open_time) = ?;";
 		Query query = this.getCurrentSession().createSQLQuery(sql).addEntity(Screen.class);

@@ -9,7 +9,7 @@ public class UserInfo implements DomainObject{
 	 */
 	private static final long serialVersionUID = -8282461702421044344L;
 
-	private static final String OBJECT_KEY = "USER";
+	private static final String OBJECT_KEY = "UserInfo";
 	
 	private String id;
 	private String name;

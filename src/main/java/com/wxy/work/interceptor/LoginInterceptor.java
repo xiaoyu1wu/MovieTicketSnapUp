@@ -18,7 +18,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		if (request.getHeader("x-requested-with") != null && request.getHeader("x-requested-with").equalsIgnoreCase("XMLHttpRequest")){ //如果是ajax请求响应头会有x-requested-with  
             return true;
         }else if(userId==null && adminId == null){
-			response.sendRedirect("/MovieTicketSnapUp/user/userLogin.htmls");
+			response.sendRedirect("/MovieTicketSnapUp/user/login.htmls");
 			return false;
 		}
 		return super.preHandle(request, response, handler);

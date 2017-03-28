@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.wxy.work.entity.User;
-import com.wxy.work.entity.User;
 import com.wxy.work.enums.ErrorMsg;
 import com.wxy.work.service.UserService;
 import com.wxy.work.util.Encrypter;
@@ -52,15 +51,13 @@ public class UserController {
 		return userInfos;
 	}
 
-	@RequestMapping("/main")
+	@RequestMapping("/index")
 	public String main(ModelMap modelMap) {
-		LOGGER.debug("进入main.jsp");
-		return "/common/main";
+		return "/common/index";
 	}
 
 	@RequestMapping("/movieDetail")
 	public String testMovieDetail(ModelMap modelMap) {
-		LOGGER.debug("进入movieDetail.jsp");
 		return "/common/movieDetail";
 	}
 
@@ -100,7 +97,7 @@ public class UserController {
 				session.setAttribute("userId", userId);
 
 				model.addObject("userEmail", email);
-				model.setViewName("/common/main");
+				model.setViewName("/common/index");
 			} else {
 				model.addObject("error", ErrorMsg.AleadyExistUser);
 				model.setViewName("/user/Regedit");
@@ -134,7 +131,7 @@ public class UserController {
 				session.setAttribute("userId", userId); 
 				
 				model.addObject("userEmail", email);
-				model.setViewName("/common/main");
+				model.setViewName("/common/index");
 			} else {
 				model.addObject("error", ErrorMsg.NotExistUser.getValue());
 				model.setViewName("/user/userLogin");

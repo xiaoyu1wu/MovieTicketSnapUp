@@ -1,5 +1,5 @@
 package com.wxy.work.entity;
-// Generated 2017-3-27 0:09:43 by Hibernate Tools 4.3.1.Final
+// Generated 2017-3-27 10:02:09 by Hibernate Tools 4.3.1.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

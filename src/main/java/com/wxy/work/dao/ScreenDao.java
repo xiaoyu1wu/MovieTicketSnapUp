@@ -13,6 +13,6 @@ import com.wxy.work.entity.Screen;
  */
 public interface ScreenDao extends GenericDao<Screen, Integer>{
 
-	List<Screen> getScreenList(Date day, Integer cinema, String movie);
+	List<Screen> getScreenList(Date day, Integer cinema, String movieName);
 	
 }

@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 创建时间：2015-2-6 下午2:45:14
@@ -78,6 +79,7 @@ public class UserDaoImpl implements UserDao {
 		return userId.intValue();
 	}
 	
+	@Transactional
 	@Override
 	public int findUser(String email) {
 		String sql = "select IFNULL(MAX(user_id), -1) as user_id from user " +

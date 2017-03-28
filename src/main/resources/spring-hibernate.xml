@@ -63,6 +63,9 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
+	<!-- 启用hibernate事务注解 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
 	<!-- 配置事务增强处理Bean，指定事务管理器 -->
 	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
 		<!-- 配置详细事务处理语义 -->

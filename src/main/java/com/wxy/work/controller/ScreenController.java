@@ -32,8 +32,8 @@ public class ScreenController {
 	private @ResponseBody List<Screen> getScreenList(ModelMap modelMap, @RequestParam String day, @RequestParam String cinemaId, @RequestParam String movie) throws ParseException {
 		LOGGER.info("获取所有的电影排片");
 		LOGGER.info("day:" + day);
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");//小写的mm表示的是分钟  
-		Date date=sdf.parse(day);
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");//小写的mm表示的是分钟
+		Date date=sdf.parse(day); 
 		
 		List<Screen> screens = screenService.getScreenList(date, Integer.valueOf(cinemaId), movie);
 		return screens;

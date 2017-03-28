@@ -1,0 +1,54 @@
+.redfc{
+	font-size:25px;
+	color:#FF0000;
+}
+
+
+.movieType{
+	width:900px;
+	margin-top:50px;
+	margin-bottom:100px;
+	display:inline;
+}
+
+.movieType li{
+	float:left;
+	width:60px;
+	margin-left:3px;
+	line-height:30px;
+	font-size:15px;
+	color:#FF0000;
+}
+
+.movieType li .typename{
+	font-weight:bold;
+	color:#C0C0C0;
+}
+
+.movieType ul{
+	list-style:none;
+}
+
+.movieType a{
+	display:block;
+	text-align:center;
+	height:30px;
+}
+
+.movieType a:link{
+	color:#666;
+	background:#CCC;
+	text-decoration:none;
+}
+
+.movieType a:visited{
+	color:#666;
+	text-decoration:underline;
+}
+
+.movieType a:hover{
+	color:#FFF; 
+	font-weight:bold;
+	text-decoration:underline;
+	background:#F00;
+}

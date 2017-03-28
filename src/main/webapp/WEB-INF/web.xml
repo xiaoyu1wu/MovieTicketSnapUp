@@ -16,6 +16,7 @@
 
 	</context-param>
 
+	<!-- POST提交的过滤器 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -82,6 +83,6 @@
 	</session-config>
 
 	<welcome-file-list>
-		<welcome-file>/index.jsp</welcome-file>
+		<welcome-file>/WEB-INF/views/common/index.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

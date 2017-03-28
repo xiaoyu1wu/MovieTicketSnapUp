@@ -32,8 +32,8 @@ public class UserServiceTest {
 	private static final Logger LOGGER = Logger
 			.getLogger(UserServiceTest.class);
 
-	@Autowired
-	private UserService userService;
+//	@Autowired
+//	private UserService userService;
 	
 	@Autowired
 	private RedisService<UserInfo> redisService;

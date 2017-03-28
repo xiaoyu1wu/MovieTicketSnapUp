@@ -27,4 +27,6 @@ public class CommonTest {
 		String time = DateUtil.DateToString(new Date("2017/3/21 20:25:48"), DateStyle.HH_MM_SS);
 		Assert.assertEquals("20:25:48", time);
 	}
+	
+	
 }

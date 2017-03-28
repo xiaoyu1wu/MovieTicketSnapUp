@@ -32,4 +32,5 @@ public interface UserService {
 	int findUser(String email, String md5Pwd);
 
 	int findUser(String email);
+
 }
