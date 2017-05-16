@@ -17,14 +17,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>会员登录</title>
 
-<link rel="stylesheet"
-	href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-<script
-	src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script
-	src="/MovieTicketSnapUp/nice-validator/jquery.validator.js?local=zh-CN"></script>
+<base href="<%=basePath%>" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script	src="nice-validator/jquery.validator.js?local=zh-CN"></script>
 
 </head>
 <body>

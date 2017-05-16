@@ -2,6 +2,7 @@ package com.wxy.work.controller;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -67,7 +68,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/processUserRegedit")
-	public ModelAndView processRegedit(HttpServletRequest request, HttpSession session) {
+	public ModelAndView processRegedit(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		ModelAndView model = new ModelAndView();
 
 		String email = request.getParameter("email");
@@ -95,7 +96,8 @@ public class UserController {
 				userService.save(user);
 				userId = userService.findUser(email);
 				session.setAttribute("userId", userId);
-
+				response.addCookie(new Cookie("userId", userId+""));
+				
 				model.addObject("userEmail", email);
 				model.setViewName("/common/index");
 			} else {
@@ -129,7 +131,7 @@ public class UserController {
 			// 若用户存在
 			if (userId != -1) {
 				session.setAttribute("userId", userId); 
-				
+				response.addCookie(new Cookie("userId", userId +""));
 				model.addObject("userEmail", email);
 				model.setViewName("/common/index");
 			} else {

@@ -11,20 +11,20 @@
 						<span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">电影购票系统</a>
+					<a class="navbar-brand" href="/MovieTicketSnapUp/common/index.htmls">电影购票系统</a>
 				</div>
 				<div class="collapse navbar-collapse" id="my-navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="common/index.htmls">首页</a></li>
-						<li class="active"><a href="">最新电影</a></li>
-						<li><a href="">电影院</a></li>
-						<li><a href="">快速购票</a></li>
-						<li><a href="">邀约</a></li>
+						<li class="active"><a href="/MovieTicketSnapUp/common/index.htmls" >最新电影</a></li>
+						<li><a href="common/getAllCinemas.htmls" onclick="switchNav()">电影院</a></li>
+						<li><a href="" onclick="switchNav()">快速购票</a></li>
+						<li><a href="" onclick="switchNav()">邀约</a></li>
 						<li>
-							<form class="navbar-form">
+							<form id="" name="searchForm" method="post" action="/MovieTicketSnapUp/common/searchMovie.htmls" class="navbar-form">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="搜索电影名" />
-									<button type="button" class="btn btn-default">搜索</button>
+									<input type="text" name="name" class="form-control" placeholder="搜索电影名" />
+									<button type="submit" class="btn btn-default">搜索</button>
 								</div>
 							</form>
 						</li>
@@ -43,3 +43,9 @@
 
 	</div>
 </div>
+
+<script>
+	funtion switchNav(){
+		this.parent().addClass("active");
+	}
+</script>

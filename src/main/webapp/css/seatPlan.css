@@ -22,9 +22,11 @@
 
 .empty {
     height: 21px;
+    white-space: nowrap;
+    zoom: 1;
 }
 
-.seatAll .seatRow .st, .seatAll .seatRow .empty {
+.seatRow .st, .seatRow .empty {
     display: inline-block;
     height: 21px;
     letter-spacing: -8px;
@@ -32,6 +34,79 @@
     word-spacing: -8px;
 }
 
-.seatAll .seatRow .st img {
+.seatRow .st img {
     cursor: pointer;
 }
+
+#two6, .redff, .red2 {
+    color: #ff4747;
+}
+
+.choose-seat {
+    width: 258px;
+    padding: 20px 10px 25px;
+}
+
+.bdb_blue {
+    border-bottom: solid 1px #ccd1e2;
+}
+
+
+.fst {
+    color: #2b2424;
+}
+
+.f14 {
+    font-size: 14px;
+}
+
+.fb {
+    font-weight: bold;
+}
+
+.clear:after {
+    display: block;
+    clear: both;
+    content: '';
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+.fst {
+    color: #2b2424;
+}
+#windownbg h1, h2, h3, h4, h5, h6, div, p, ul, ol, dl, dd, dt, abbr, form, input, img {
+    margin: 0;
+    padding: 0;
+}
+
+.bdb_blue {
+    border-bottom: solid 1px #ccd1e2;
+}
+.p10 {
+    padding: 10px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+.fs0 {
+    color: #000;
+}
+
+
+.mt20 {
+    margin-top: 20px;
+}
+
+table {
+    border-collapse: collapse;
+}
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+

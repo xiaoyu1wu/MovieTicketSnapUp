@@ -4,32 +4,37 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page isELIgnored="false"%>
 
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>首页</title>
 
-<link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="/MovieTicketSnapUp/css/body.css">
-<link rel="stylesheet" href="/MovieTicketSnapUp/css/index.css">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-
-<base href="<%=basePath%>">
-
+<base href="<%=basePath%>" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/body.css">
+<link rel="stylesheet" href="css/index.css">
+<!-- Custom CSS -->
+<!--
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/font-awesome.css" rel="stylesheet">  -->
 </head>
 <body>
 	<div class="container">
 		<!-- 导航栏 -->
 		<jsp:include page="/WEB-INF/views/common/navigation.html"></jsp:include>
 		<!-- end 导航栏 -->
-		
 		
 		<!-- 轮播图 -->
 		<div class="row clearfix">
@@ -129,7 +134,7 @@
 									<span class="res_blue" style="display: none;">IMAX</span> 
 									
 									<div class="res_movie_ann">
-										<a href="" class="btn btn-primary" target="_blank">选座购票</a>
+										<a href="screen/showScreenList.htmls?movieId=${movie.movieId}" class="btn btn-primary" target="_blank">选座购票</a>
 									</div>
 									
 								</div>
@@ -174,53 +179,11 @@
 					</c:forEach>
 				</c:if>
 				<!-- end 电影列表 -->
-
-				<!-- <table id="movieList" class="table table-hover table-striped">
-					<thead>
-						<tr>
-							<th>时间</th>
-							<th>语言</th>
-							<th>放映厅</th>
-							<th>影院价格</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody id="movieDataList">
-						
-					</tbody> 
-				</table> -->
-				
-					<%-- <tr>
-			            <td colspan="6" align="center" bgcolor="#5BA8DE">共${page.totalRecords}条记录 共${page.totalPages}页 当前第${page.pageNo}页<br>
-			                
-			                <a href="${path}/course/showAll.do?pageNo=${page.topPageNo }"><input type="button" name="firstPage" value="首页" /></a>
-			                <c:choose>
-			                  <c:when test="${page.pageNo!=1}">
-			                    
-			                      <a href="/MovieTicketSnapUp/course/showAll.do?pageNo=${page.previousPageNo }"><input type="button" name="previousPage" value="上一页" /></a>
-			                    
-			                  </c:when>
-			                  <c:otherwise>
-			                    
-			                      <input type="button" disabled="disabled" name="previousPage" value="上一页" />
-			                    
-			                  </c:otherwise>
-			                </c:choose>
-			                <c:choose>
-			                  <c:when test="${page.pageNo != page.totalPages}">
-			                    <a href="${path}/course/showAll.do?pageNo=${page.nextPageNo }"><input type="button" name="nextPage" value="下一页" /></a>
-			                  </c:when>
-			                  <c:otherwise>
-			                    
-			                      <input type="button" disabled="disabled" name="nextPage" value="下一页" />
-			                    
-			                  </c:otherwise>
-			                </c:choose>
-			                <a href="${path}/course/showAll.do?pageNo=${page.bottomPageNo }"><input type="button" name="lastPage" value="尾页" /></a>
-			            </td>
-	        		</tr> --%>
-				
-
+				<c:if test="${empty requestScope.movies}">
+					<div class="res_cinema col-md-12" style="margin-top:50px;">
+						<h3 style="color:red">暂无该类型的电影，请换个条件搜索</h3>
+					</div>
+				</c:if>
 			</div>
 
 		</div>

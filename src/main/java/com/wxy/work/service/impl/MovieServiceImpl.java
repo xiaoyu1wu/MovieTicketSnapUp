@@ -36,9 +36,8 @@ public class MovieServiceImpl implements MovieService{
     }
 
 	@Override
-	public Movie findMovie(String movieName) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Movie> findMovie(String movieName) {
+		return movieDao.findMovieByMovieName(movieName);
 	}
 
 	@Override
@@ -63,4 +62,5 @@ public class MovieServiceImpl implements MovieService{
 	public Movie findMovie(Integer movieId) {
 		return movieDao.get(movieId);
 	}
+
 }

@@ -1,5 +1,7 @@
 package com.wxy.work.service;
 
+import java.util.List;
+
 import com.wxy.work.entity.Movie;
 import com.wxy.work.util.Page;
 
@@ -26,7 +28,7 @@ public interface MovieService {
 	 * @param movieName
 	 * @return
 	 */
-	Movie findMovie(String movieName);
+	List<Movie> findMovie(String movieName);
 	
 	/**
 	 * 根据电影id查找

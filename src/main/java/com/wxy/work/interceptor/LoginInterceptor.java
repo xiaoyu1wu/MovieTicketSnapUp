@@ -8,7 +8,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter{
 
-	@Override
+	/*@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
@@ -22,5 +22,5 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			return false;
 		}
 		return super.preHandle(request, response, handler);
-	}
+	}*/
 }

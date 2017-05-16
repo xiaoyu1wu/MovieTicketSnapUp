@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wxy.work.dao.MovieDao;
+import com.wxy.work.entity.Cinema;
 import com.wxy.work.entity.Movie;
 
 @Repository("movieDao")
@@ -124,14 +125,16 @@ public class MovieDaoImpl implements MovieDao {
 
 	@Override
 	public Movie findMovieByName(String movieName) {
-		// TODO Auto-generated method stub
-		return null;
+		String hql = "from Movie m where m.movieName = :name";
+		Movie movie = (Movie) this.getCurrentSession().createQuery(hql).setParameter("name", movieName).list().get(0);
+		return movie;
 	}
 
 	@Override
 	public List<Movie> findMovieByMovieName(String movieName) {
-		// TODO Auto-generated method stub
-		return null;
+		String hql = "from Movie m where m.movieName like :name";
+		List<Movie> movies = this.getCurrentSession().createQuery(hql).setParameter("name", "%" +movieName+ "%").list();
+		return movies;
 	}
 
 }
