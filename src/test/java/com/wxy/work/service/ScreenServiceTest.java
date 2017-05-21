@@ -35,7 +35,6 @@ public class ScreenServiceTest extends TestCase{
 		List<Screen> screenList = screenService.getScreenList(date, 1, "刺客信条");
 		System.out.println("screenId:" + screenList.size()); 
 	}
-	
 	@Test
 	public void TestGet() throws ParseException{
 		Screen screen = screenService.get(1);

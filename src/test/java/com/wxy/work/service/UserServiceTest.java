@@ -6,9 +6,12 @@ import java.util.UUID;
 
 import com.wxy.work.dto.UserInfo;
 import com.wxy.work.entity.AcctUser;
+import com.wxy.work.entity.User;
 import com.wxy.work.service.UserService;
+import com.wxy.work.util.Encrypter;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +35,8 @@ public class UserServiceTest {
 	private static final Logger LOGGER = Logger
 			.getLogger(UserServiceTest.class);
 
-//	@Autowired
-//	private UserService userService;
+	@Autowired
+	private UserService userService;
 	
 	@Autowired
 	private RedisService<UserInfo> redisService;
@@ -74,6 +77,17 @@ public class UserServiceTest {
        
         System.out.println("User in redis yet: " + redisService.get(new UserInfo("tony1Key", "")).getName());
         System.out.println("User in redis yet: " + redisService.get(new UserInfo("tony2Key", "")).getName());
+	}
+	
+	@Test
+	public void testProcessLogin(){
+		User user1 = new User("123@qq.com", Encrypter.encrypt("123456"));
+		int res = userService.findUser(user1.getUserEmail(), user1.getUserPassword());
+		Assert.assertTrue("测试不通过",res != -1);
+		
+		User user2 = new User("123@qq.com", Encrypter.encrypt("123"));
+		res = userService.findUser(user1.getUserEmail(), user1.getUserPassword());
+		Assert.assertTrue("测试不通过",res == -1);
 	}
 
 }
